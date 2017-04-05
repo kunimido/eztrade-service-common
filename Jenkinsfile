@@ -16,8 +16,8 @@ pipeline {
 
     post {
         success {
-            build '/eztrade/eztrade-equities-service/${BRANCH_NAME}'
-            build '/eztrade/eztrade-forex-service/${BRANCH_NAME}'
+            build "/eztrade/eztrade-equities-service/${env.BRANCH_NAME}"
+            build "/eztrade/eztrade-forex-service/${env.BRANCH_NAME}"
         }
     }
 }
