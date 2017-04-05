@@ -1,0 +1,13 @@
+# System
+.DS_Store
+
+# Java artefacts
+*.class
+*.jar
+
+# Maven
+target/
+
+# IntelliJ IDEA
+.idea
+*.iml
