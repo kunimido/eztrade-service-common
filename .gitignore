@@ -1,6 +1,10 @@
 # System
 .DS_Store
 
+# Java artefacts
+*.class
+*.jar
+
 # Maven
 /target/
 
