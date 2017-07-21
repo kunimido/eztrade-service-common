@@ -1,7 +1,7 @@
 # System
 .DS_Store
 
-# Java artefacts
+# Java artifacts
 *.class
 *.jar
 
