@@ -22,5 +22,7 @@ public class TomcatAprProperties {
 
     private boolean enabled;
 
+    private boolean http2;
+
     private final Ssl ssl = new Ssl();
 }

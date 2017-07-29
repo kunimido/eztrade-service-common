@@ -1,6 +1,5 @@
 package com.github.kunimido.eztrade.service.configuration;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +7,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = TomcatAprPropertiesIT.class)
@@ -19,31 +22,36 @@ public class TomcatAprPropertiesIT {
 
     @Test
     public void shouldReturnTrueForEnabled() {
-        Assert.assertTrue(properties.isEnabled());
+        assertTrue(properties.isEnabled());
+    }
+
+    @Test
+    public void shouldReturnTrueForHttp2() {
+        assertTrue(properties.isHttp2());
     }
 
     @Test
     public void shouldNotReturnNullForSsl() {
-        Assert.assertNotNull(properties.getSsl());
+        assertNotNull(properties.getSsl());
     }
 
     @Test
     public void shouldReturnTrueForSslEnabled() {
-        Assert.assertTrue(properties.getSsl().isEnabled());
+        assertTrue(properties.getSsl().isEnabled());
     }
 
     @Test
     public void shouldReturnSslCertificateKeyFile() {
-        Assert.assertEquals("conf/key.pem", properties.getSsl().getCertificateKeyFile());
+        assertEquals("conf/key.pem", properties.getSsl().getCertificateKeyFile());
     }
 
     @Test
     public void shouldReturnSslCertificateFile() {
-        Assert.assertEquals("conf/cert.pem", properties.getSsl().getCertificateFile());
+        assertEquals("conf/cert.pem", properties.getSsl().getCertificateFile());
     }
 
     @Test
     public void shouldReturnSslCertificateChainFile() {
-        Assert.assertEquals("conf/chain.pem", properties.getSsl().getCertificateChainFile());
+        assertEquals("conf/chain.pem", properties.getSsl().getCertificateChainFile());
     }
 }
