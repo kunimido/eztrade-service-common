@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     triggers {
-        upstream(upstreamProjects: "/eztrade/eztrade-parent/${env.BRANCH_NAME}", threshold: hudson.model.Result.SUCCESS)
+        upstream(upstreamProjects: "/eztrade/eztrade-parent/${env.BRANCH_NAME}", threshold: hudson.model.Result.UNSTABLE)
     }
 
     tools {
