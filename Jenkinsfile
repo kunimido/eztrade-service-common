@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10'))
+    }
+
     triggers {
         upstream(upstreamProjects: "/eztrade/eztrade-parent/${env.BRANCH_NAME}", threshold: hudson.model.Result.UNSTABLE)
     }
