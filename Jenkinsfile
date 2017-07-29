@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    triggers {
+        upstream(upstreamProjects: "/eztrade/eztrade-parent/${env.BRANCH_NAME}", threshold: hudson.model.Result.SUCCESS)
+    }
+
     tools {
         jdk 'JDK 1.8'
         maven 'Maven 3.5.0'
@@ -11,13 +15,6 @@ pipeline {
             steps {
                 sh 'mvn -B -V -U clean install'
             }
-        }
-    }
-
-    post {
-        success {
-            build job: "/eztrade/eztrade-equities-service/${env.BRANCH_NAME}", wait: false
-            build job: "/eztrade/eztrade-forex-service/${env.BRANCH_NAME}", wait: false
         }
     }
 }
