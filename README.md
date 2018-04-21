@@ -1,1 +1,1 @@
-# eztrade-service-parent
+# eztrade-service-common
